@@ -1,0 +1,8 @@
+<%= link_to 'Cadastrar Gênero', new_gender_path %> <hr>
+
+<% @genders.each do |gender| %>
+  <p>
+    <%= gender.description %>
+    <%= link_to 'Editar', edit_gender_path(gender.id) %>
+  </p>
+<% end %>

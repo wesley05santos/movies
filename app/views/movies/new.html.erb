@@ -1,0 +1,51 @@
+<h1>Novo Filme</h1>
+
+<% if @movie.errors.any? %>
+  <% @movie.errors.full_messages.each do |message| %>
+    <p>
+      <%= message %>
+    </p>
+  <% end %>
+<% end %>
+
+
+<%= form_with model: Movie do |form| %>
+  <p>
+    <%= form.label 'Título: ' %>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label 'Ano de lançamento: ' %>
+    <%= form.number_field :release_year %>
+  </p>  
+
+  <p>
+    <%= form.label 'País de Origem: ' %>
+    <%= form.text_field :country_of_origin %>
+  </p>
+
+  <p>
+    <%= form.label 'Duração (minutos): ' %>
+    <%= form.number_field :duration %>
+  </p>
+
+  <p>
+    <%= form.label 'Diretor: ' %>
+    <%= form.collection_select :director_id, Director.all, :id, :name %>
+  </p>
+
+  <p>
+    <%= form.label 'Gênero: ' %>
+    <%= form.collection_select :gender_id, Gender.all, :id, :description %>
+  </p>
+  
+  <p>
+    <%= form.label 'Sinopse' %>
+    <%= form.text_area :synopsis %>
+  </p>
+
+  <p>
+    <%= form.submit 'Salvar' %>  
+  </p>
+<% end %>

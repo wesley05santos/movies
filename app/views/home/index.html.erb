@@ -1,0 +1,12 @@
+<h1>Filmes</h1>
+
+<%= link_to 'Cadastrar Novo Filme', new_movie_path %> <hr>
+
+<% @movies.each do |movie| %>
+  <p>
+    <%= movie.title %> | 
+    <%= movie.release_year %> =>
+    <%= link_to 'Detalhes', movie %>
+  </p>
+<% end %>
+
