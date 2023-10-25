@@ -2,6 +2,12 @@
 
 <% @directors.each do |director| %>
   <p>
-    <%= director.name %> <%= link_to 'Editar', edit_director_path(director.id) %>
+    <%= director.name %>
+    <%= link_to 'Filmes', movies_path(director: director.id) %>
   </p>
+  <p>
+    <%= link_to 'Editar', edit_director_path(director.id) %> /
+    <%= link_to 'Remover Gênero', director_path(director), data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente remover o diretor? ' } %>
+  </p>
+  <hr>
 <% end %>

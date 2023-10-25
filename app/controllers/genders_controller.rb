@@ -11,7 +11,8 @@ class GendersController < ApplicationController
     @gender = Gender.new(description: params[:gender][:description])
 
     if @gender.save
-      return redirect_to new_gender_path
+      flash[:notice] = 'Informações foram salvas com Sucesso'
+      return redirect_to genders_path
       
     end
 
@@ -31,5 +32,11 @@ class GendersController < ApplicationController
     else
       render :edit
     end  
+  end
+
+  def destroy
+    gender = Gender.find(params[:id])    
+    gender.movies.empty? ? gender.destroy : flash[:alert] = 'Não é possivel remover Gẽnero com filme cadastrado.'
+    redirect_to genders_path
   end
 end

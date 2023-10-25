@@ -1,4 +1,10 @@
 class MoviesController < ApplicationController
+  def index
+    filter = { gender_id: params[:gender] } if params[:gender]
+    filter = { director_id: params[:director] } if params[:director]
+    @movies = Movie.where(filter)    
+  end
+  
   def show
     @movie = Movie.find(params[:id])
   end
@@ -43,5 +49,11 @@ class MoviesController < ApplicationController
     end
 
     render :edit
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy   
+    redirect_to movies_path
   end
 end

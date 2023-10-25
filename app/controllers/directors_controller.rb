@@ -37,4 +37,10 @@ class DirectorsController < ApplicationController
 
     render :new
   end
+
+  def destroy
+    director = Director.find(params[:id])    
+    director.movies.empty? ? director.destroy : flash[:alert] = 'Não é possivel remover Diretor com filme cadastrado.'
+    redirect_to directors_path
+  end
 end

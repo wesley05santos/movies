@@ -3,6 +3,11 @@
 <% @genders.each do |gender| %>
   <p>
     <%= gender.description %>
-    <%= link_to 'Editar', edit_gender_path(gender.id) %>
+    <%= link_to 'Filmes', movies_path(gender: gender.id) %>
   </p>
+  <p>
+    <%= link_to 'Editar', edit_gender_path(gender.id) %> /
+    <%= link_to 'Remover Gênero', gender_path(gender), data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente remover o gênero? ' } %>
+  </p>
+  <hr>
 <% end %>

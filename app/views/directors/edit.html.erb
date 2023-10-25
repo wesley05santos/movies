@@ -1,10 +1,1 @@
-<%= form_with model: @director do |form| %>
-  <div>
-    <%= form.label :name, 'Nome:' %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.submit 'Salvar' %>
-  </div>
-<% end %>
+<%= render 'form_director' %>

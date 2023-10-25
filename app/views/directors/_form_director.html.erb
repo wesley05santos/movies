@@ -1,0 +1,12 @@
+<%= render 'shared/errors', object: @director %>
+
+<%= form_with model: @director, data: { turbo: false } do |f| %>
+  <div>
+    <%= f.label :name, 'Nome:' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>

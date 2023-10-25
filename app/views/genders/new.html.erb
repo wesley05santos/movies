@@ -1,10 +1,1 @@
-<%= form_with model: Gender.new do |f| %>
-  <div>
-    <%= f.label :description, 'Gênero:' %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div>
-    <%= f.submit 'Salvar' %>
-  </div>
-<% end %>
+<%= render 'form_gender' %>

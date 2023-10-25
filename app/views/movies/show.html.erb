@@ -1,4 +1,7 @@
 <%= link_to 'Editar', edit_movie_path %>
+<%= link_to 'Remover Filme', movie_path(@movie), data: { turbo_method: :delete, turbo_confirm: 'Deseja realmente remover o filme? ' } %>
+
+
 
 <h1>
   Informações do filme: <%= @movie.title %>

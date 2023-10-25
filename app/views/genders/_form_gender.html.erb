@@ -1,0 +1,12 @@
+<%= render 'shared/errors', object: @gender %>
+
+<%= form_with model: @gender, data: { turbo: false } do |f| %>
+  <div>
+    <%= f.label :description, 'Gênero:' %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.submit 'Salvar' %>
+  </div>
+<% end %>
